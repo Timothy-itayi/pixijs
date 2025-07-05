@@ -7,28 +7,28 @@
     {
       id: 'mercedes',
       name: 'Mercedes',
-      emblem: '/assets/teams/mercedes.png',
+      emblem: '/assets/teams/c.webp',
       drivers: [
-        { id: 'hamilton', name: 'Hamilton', image: '/assets/drivers/hamilton.png' },
-        { id: 'russell', name: 'Russell', image: '/assets/drivers/russell.png' }
+        { id: 'antonelli', name: 'Antonelli', image: '/assets/drivers/antonelli.png' },
+        { id: 'russell', name: 'Russell', image: '/assets/drivers/russell.avif' }
       ]
     },
     {
       id: 'redbull',
       name: 'Red Bull',
-      emblem: '/assets/teams/redbull.png',
+      emblem: '/assets/teams/redbull.jpeg',
       drivers: [
-        { id: 'verstappen', name: 'Verstappen', image: '/assets/drivers/verstappen.png' },
-        { id: 'perez', name: 'Perez', image: '/assets/drivers/perez.png' }
+        { id: 'verstappen', name: 'Verstappen', image: '/assets/drivers/verstappen.avif' },
+        { id: 'tsunoda', name: 'Tsunoda', image: '/assets/drivers/tsunoda.avif' }
       ]
     },
     {
       id: 'ferrari',
       name: 'Ferrari',
-      emblem: '/assets/teams/ferrari.png',
+      emblem: '/assets/teams/ferrari.webp',
       drivers: [
-        { id: 'leclerc', name: 'Leclerc', image: '/assets/drivers/leclerc.png' },
-        { id: 'sainz', name: 'Sainz', image: '/assets/drivers/sainz.png' }
+        { id: 'leclerc', name: 'Leclerc', image: '/assets/drivers/leclerc.avif' },
+        { id: 'hamilton', name: 'Hamilton', image: '/assets/drivers/hamilton.avif' }
       ]
     }
   ];
@@ -57,42 +57,42 @@
   }
 </script>
 
-<div class="px-6 py-10 bg-black text-white min-h-full flex flex-col items-center">
-  <h2 class="text-4xl font-light tracking-wide mb-10 border-b border-white pb-2">
+<div class="bg-black text-white min-h-screen flex flex-col items-center justify-center px-6 py-10">
+  <h2 class="text-5xl font-light tracking-wide mb-16 border-b border-white pb-3 w-full max-w-4xl text-center">
     Select Your Team & Driver
   </h2>
 
   <!-- Team Cards -->
-  <div class="flex space-x-6 mb-10 overflow-x-auto pb-2">
+  <div class="flex space-x-12 mb-16 justify-center flex-wrap max-w-5xl">
     {#each teams as team}
       <div
-        class="cursor-pointer border border-white rounded-md p-4 flex flex-col items-center transition-all hover:opacity-90 hover:scale-105"
+        class="cursor-pointer border border-white rounded-lg p-8 flex flex-col items-center transition-transform hover:opacity-90 hover:scale-110"
         class:border-white={selectedTeam?.id === team.id}
         class:opacity-60={selectedTeam?.id !== team.id}
         on:click={() => selectTeam(team)}
-        style="min-width: 150px;"
+        style="min-width: 200px;"
       >
-        <img src={team.emblem} alt={team.name + ' emblem'} class="w-24 h-24 object-contain mb-3" />
-        <p class="text-lg tracking-wider">{team.name}</p>
+        <img src={team.emblem} alt={team.name + ' emblem'} class="w-40 h-40 object-contain mb-6" />
+        <p class="text-2xl tracking-wider">{team.name}</p>
       </div>
     {/each}
   </div>
 
   {#if selectedTeam}
-    <h3 class="text-2xl font-light tracking-wide mb-6 border-b border-white pb-2">
+    <h3 class="text-3xl font-light tracking-wide mb-8 border-b border-white pb-3 w-full max-w-4xl text-center">
       Drivers for {selectedTeam.name}
     </h3>
-    <div class="flex space-x-6 overflow-x-auto pb-6 mb-6">
+    <div class="flex space-x-12 justify-center flex-wrap max-w-5xl mb-12">
       {#each selectedTeam.drivers as driver}
         <div
-          class="cursor-pointer border border-white rounded-md p-3 flex flex-col items-center transition-all hover:scale-105"
+          class="cursor-pointer border border-white rounded-lg p-6 flex flex-col items-center transition-transform hover:scale-110"
           class:border-white={selectedDriver?.id === driver.id}
           class:opacity-60={selectedDriver?.id !== driver.id}
           on:click={() => selectDriver(driver)}
-          style="min-width: 120px;"
+          style="min-width: 160px;"
         >
-          <img src={driver.image} alt={driver.name} class="w-20 h-20 object-cover rounded-full mb-2" />
-          <p class="text-sm tracking-wide">{driver.name}</p>
+          <img src={driver.image} alt={driver.name} class="w-32 h-32 object-cover rounded-full mb-4" />
+          <p class="text-lg tracking-wide">{driver.name}</p>
         </div>
       {/each}
     </div>
@@ -101,7 +101,7 @@
   <button
     on:click={confirmSelection}
     disabled={!selectedTeam || !selectedDriver}
-    class="mt-6 px-8 py-3 border border-white rounded-md uppercase tracking-widest hover:bg-white hover:text-black transition-colors duration-200 disabled:opacity-30"
+    class="mt-6 px-12 py-4 border border-white rounded-lg uppercase tracking-widest hover:bg-white hover:text-black transition-colors duration-200 disabled:opacity-30"
   >
     Confirm Selection
   </button>
