@@ -64,7 +64,9 @@
 
   <!-- Team Cards -->
   <div class="flex space-x-12 mb-16 justify-center flex-wrap max-w-5xl">
+    <!-- svelte-ignore a11y_no_static_element_interactions -->
     {#each teams as team}
+      <!-- svelte-ignore a11y_click_events_have_key_events -->
       <div
         class="cursor-pointer border border-white rounded-lg p-8 flex flex-col items-center transition-transform hover:opacity-90 hover:scale-110"
         class:border-white={selectedTeam?.id === team.id}
@@ -84,6 +86,8 @@
     </h3>
     <div class="flex space-x-12 justify-center flex-wrap max-w-5xl mb-12">
       {#each selectedTeam.drivers as driver}
+        <!-- svelte-ignore a11y_no_static_element_interactions -->
+        <!-- svelte-ignore a11y_click_events_have_key_events -->
         <div
           class="cursor-pointer border border-white rounded-lg p-6 flex flex-col items-center transition-transform hover:scale-110"
           class:border-white={selectedDriver?.id === driver.id}

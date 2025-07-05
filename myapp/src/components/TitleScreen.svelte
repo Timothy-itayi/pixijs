@@ -9,7 +9,7 @@
 
 <div class="flex flex-col items-center justify-center h-screen bg-black text-white px-4">
   <h1 class="text-5xl tracking-wide font-light border-b border-white pb-2 mb-12">
-    F1 Race Manager
+    Drive to Survive
   </h1>
 
   <button
