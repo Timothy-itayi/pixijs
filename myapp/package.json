@@ -74,6 +74,7 @@
 		"svelte"
 	],
 	"dependencies": {
+		"gsap": "^3.13.0",
 		"latest": "^0.2.0",
 		"pixi.js": "^8.11.0"
 	}
